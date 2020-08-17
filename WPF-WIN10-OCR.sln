@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.OCR", "WPF.OCR\WPF.OCR.csproj", "{A03F24E9-C9F8-4C98-8864-4553E50D4E52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.OCR.Tests", "WPF.OCR.Tests\WPF.OCR.Tests.csproj", "{6456BC74-CD6F-4520-813F-EF3844DCBDAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A03F24E9-C9F8-4C98-8864-4553E50D4E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03F24E9-C9F8-4C98-8864-4553E50D4E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03F24E9-C9F8-4C98-8864-4553E50D4E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03F24E9-C9F8-4C98-8864-4553E50D4E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6456BC74-CD6F-4520-813F-EF3844DCBDAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6456BC74-CD6F-4520-813F-EF3844DCBDAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6456BC74-CD6F-4520-813F-EF3844DCBDAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6456BC74-CD6F-4520-813F-EF3844DCBDAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B591C0C-63BB-4800-BFAF-795CF7066FD7}
+	EndGlobalSection
+EndGlobal

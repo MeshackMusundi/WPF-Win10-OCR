@@ -1,0 +1,105 @@
+﻿<mah:MetroWindow x:Class="WPF.OCR.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 mc:Ignorable="d"
+                 DataContext="{Binding Source={StaticResource VMLocator}, Path=MainWindowVM}"
+                 WindowStartupLocation="CenterScreen"
+                 Height="350" Width="600"
+                 Title="OCR">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="300"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition MinWidth="300"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Background="WhiteSmoke">
+                <Grid Background="{StaticResource CheckerBoardBrush}">
+
+                    <Image Source="{Binding SelectedImage, Mode=OneWay}"/>
+
+                    <!-- Image watermark -->
+                    <Viewbox Grid.Row="0" Margin="30"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <md:PackIcon Kind="FileImageOutline" 
+                                     Foreground="#FF686868" Opacity="0.2"/>
+                        <Viewbox.Style>
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedImage}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding SelectedImage}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Viewbox.Style>
+                    </Viewbox>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" BorderBrush="{StaticResource MaterialDesignDivider}"
+                    Background="{StaticResource MaterialDesignCardBackground}"
+                    BorderThickness="0,1,0,0" >
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" 
+                            HorizontalAlignment="Center" Margin="8">
+
+                    <Button Style="{StaticResource CustomButtonStyle}" 
+                            Foreground="#FF066183" 
+                            ToolTip="Select Image"
+                            Command="{Binding SelectImageCommand}">
+                        <md:PackIcon Width="26" Height="26" Kind="Image"/>
+                    </Button>
+
+                    <Rectangle Fill="Gainsboro" VerticalAlignment="Stretch" 
+                               Width="1" Margin="8,2,12,2" />
+
+                    <ComboBox Style="{StaticResource MahApps.Styles.ComboBox}"
+                              ItemsSource="{Binding InstalledLanguages}"
+                              SelectedItem="{Binding ImageLanguageCode}"
+                              SelectedIndex="0" />
+
+                    <Button Margin="8,0,0,0" Style="{StaticResource CustomButtonStyle}"
+                            Foreground="#FF1E2021" 
+                            ToolTip="Extract Text"
+                            Command="{Binding ExtractTextCommand}">
+                        <md:PackIcon Width="26" Height="26" Kind="TextBox"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Rectangle Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Left"
+                   Width="1" Fill="{StaticResource MaterialDesignDivider}"/>
+        <GridSplitter Grid.Column="1" Width="4" Background="Transparent"
+                      HorizontalAlignment="Stretch"/>
+
+        <Grid Grid.Column="2">
+            <ScrollViewer Margin="20">
+                <TextBlock Text="{Binding ExtractedText, Mode=OneWay}"
+                           TextWrapping="Wrap" FontSize="14"/>
+            </ScrollViewer>
+
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    ToolTip="Copy Text" Margin="10"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    Command="{Binding CopyTextToClipboardCommand}">
+                <iconPack:PackIconMaterialDesign Kind="ContentCopy"/>
+            </Button>
+        </Grid>
+
+    </Grid>
+</mah:MetroWindow>

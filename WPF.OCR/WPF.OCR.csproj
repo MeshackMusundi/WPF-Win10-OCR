@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.2.0" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.4.0" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.4" />
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.1" />
+    <PackageReference Include="Unity" Version="5.11.7" />
+  </ItemGroup>
+
+</Project>
